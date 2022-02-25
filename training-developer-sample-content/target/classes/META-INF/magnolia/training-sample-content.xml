@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+  <name>training-sample-content</name>
+  <displayName>training-sample-content Magnolia Module</displayName>
+  <version>6.2.12</version>
+
+  <dependencies>
+    <dependency>
+      <name>core</name>
+      <version>6.2/*</version>
+    </dependency>
+    <!--  Add other dependencies here, e.g the mte (magnolia templating essentials).
+    <dependency>
+      <name>mte</name>
+      <version>0.7/*</version>
+    </dependency>
+    -->
+  </dependencies>
+</module>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>training-fullstack-project</artifactId>
+    <groupId>info.magnolia.training</groupId>
+    <version>6.2.12</version>
+  </parent>
+  <groupId>info.magnolia.training</groupId>
+  <artifactId>training-developer-sample-content</artifactId>
+  <version>6.2.12</version>
+  <packaging>jar</packaging>
+  <name>training-sample-content Magnolia Module</name>
+  <description>
+    This module of the templating project represents a specific implementation, here a module containing sample content as the STK's'demo-project' module is.
+    Therefore it would contain all sample content needed for proper development. Usually such a module is not deployed on live system.
+    Dropping the jar of this module will install and provide the complete sample content placed into this module.
+    In the exercises of the training, this module will be the base for creating the first Magnolia module. There for it only contains a pom.xml, but no inner Magnolia structure yet.
+  </description>
+</project>

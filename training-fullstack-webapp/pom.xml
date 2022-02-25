@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>info.magnolia.training</groupId>
+    <artifactId>training-fullstack-project</artifactId>
+    <version>6.2.12</version>
+  </parent>
+  <artifactId>training-fullstack-webapp</artifactId>
+  <packaging>war</packaging>
+  <name>Webapp Module for Training's Developer Project</name>
+  <description>
+    This module of the training developer project represents the web-application it self.
+    This module can be used to build a WAR file and have the complete project deployed into any J2EE container.
+    The webapp module itself defines all jars that will be served/added to the WEB-INF/lib.
+    In development environment this module i used to start up the complete project.
+  </description>
+
+  <dependencies>
+    <!-- Magnolia related dependencies -->
+    <dependency>
+      <!-- Using the imported 'dependencyManagement' from the parent pom -->
+      <groupId>info.magnolia.dx</groupId>
+      <artifactId>magnolia-dx-core-webapp</artifactId>
+      <type>pom</type>
+      <exclusions>
+        <exclusion>
+          <groupId>info.magnolia.periscope</groupId>
+          <artifactId>magnolia-periscope-result-ranker</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <!-- Used for the Maven war:overlay -> defines the WAR's structure, the configs, web.xml etc. -->
+      <groupId>info.magnolia.dx</groupId>
+      <artifactId>magnolia-dx-core-webapp</artifactId>
+      <type>war</type>
+      <exclusions>
+          <exclusion>
+            <groupId>info.magnolia.periscope</groupId>
+            <artifactId>magnolia-periscope-result-ranker</artifactId>
+          </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- Project related dependencies -->
+    <dependency>
+      <groupId>info.magnolia.training</groupId>
+      <artifactId>training-fullstack-templating</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.training</groupId>
+      <artifactId>training-fullstack-admincentral</artifactId>
+    </dependency>
+    <dependency>
+	   <groupId>info.magnolia.training</groupId>
+	   <artifactId>training-developer-sample-content</artifactId>
+	   <version>6.2.12</version>
+    </dependency>
+    
+    
+    <!-- Magnolia modules that are not bundled by default. -->
+    <dependency>
+      <groupId>info.magnolia.content</groupId>
+      <artifactId>magnolia-content-importer</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.contacts</groupId>
+      <artifactId>magnolia-contacts</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.rest</groupId>
+      <artifactId>magnolia-rest-tools</artifactId>
+    </dependency>
+
+    <!-- Magnolia travel demo that are not bundled by default. -->
+    <dependency>
+      <groupId>info.magnolia.demo</groupId>
+      <artifactId>magnolia-travel-demo</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.demo</groupId>
+      <artifactId>magnolia-travel-tours</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.eedemo</groupId>
+      <artifactId>magnolia-travel-demo-marketing-tags</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.eedemo</groupId>
+      <artifactId>magnolia-travel-demo-personalization</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.eedemo</groupId>
+      <artifactId>magnolia-travel-demo-component-personalization</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.eedemo</groupId>
+      <artifactId>magnolia-travel-demo-multisite</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    
+    
+  </dependencies>
+
+
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <!-- exclude jars copied "physically" from the webapp overlay - so we only get those resolved by Maven's dependency management -->
+          <dependentWarExcludes>WEB-INF/lib/*.jar</dependentWarExcludes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

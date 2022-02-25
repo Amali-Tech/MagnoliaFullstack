@@ -1,0 +1,3 @@
+title: Just for testing a hybrid module
+renderType: freemarker
+templateScript: /training-templating-foundation/templates/pages/first.ftl

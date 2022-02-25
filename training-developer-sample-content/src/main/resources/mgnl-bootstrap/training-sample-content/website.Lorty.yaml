@@ -1,0 +1,37 @@
+'Lorty':
+  'abstract': 'lorty is flexing plenty '
+  'hideInNav': false
+  'jcr:primaryType': 'mgnl:page'
+  'jcr:uuid': 'c3bb0ac3-f3c4-4b50-b978-5155c8291889'
+  'mgnl:created': 2022-02-03T10:49:02.353Z
+  'mgnl:createdBy': 'superuser'
+  'mgnl:lastModified': 2022-02-03T10:49:32.165Z
+  'mgnl:lastModifiedBy': 'superuser'
+  'mgnl:template': 'mtk2:pages/basic'
+  'navigationTitle': 'Lorty'
+  'noCache': false
+  'title': 'Lorty Girl'
+  'windowTitle': 'Lorty Is Pregnant'
+  'main':
+    'jcr:primaryType': 'mgnl:area'
+    'jcr:uuid': 'f1574650-ca81-422d-9cc7-ed990077a208'
+    'mgnl:created': 2022-02-03T10:49:09.013Z
+    'mgnl:createdBy': 'superuser'
+    'mgnl:lastModified': 2022-02-03T10:49:32.165Z
+    'mgnl:lastModifiedBy': 'superuser'
+    '0':
+      'image': 'jcr:78399215-aed5-4518-9cfc-9b39855f4740'
+      'jcr:primaryType': 'mgnl:component'
+      'jcr:uuid': 'c5715e3f-b134-484b-adc6-a43262a5f8d2'
+      'mgnl:created': 2022-02-03T10:50:02.580Z
+      'mgnl:createdBy': 'superuser'
+      'mgnl:lastModified': 2022-02-03T10:50:02.581Z
+      'mgnl:lastModifiedBy': 'superuser'
+      'mgnl:template': 'mtk2:components/image'
+  'footer':
+    'jcr:primaryType': 'mgnl:area'
+    'jcr:uuid': '3ff1f427-0a37-469e-8b0d-ebe8aa38d456'
+    'mgnl:created': 2022-02-03T10:49:09.044Z
+    'mgnl:createdBy': 'superuser'
+    'mgnl:lastModified': 2022-02-03T10:49:09.044Z
+    'mgnl:lastModifiedBy': 'superuser'

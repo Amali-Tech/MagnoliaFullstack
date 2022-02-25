@@ -1,0 +1,7 @@
+areas:
+  main:
+    availableComponents:
+      pageLinkList-usingJava:
+        id: training-templating-advanced:components/pageLinkList
+      documentLinkList-usingJava:
+        id: training-templating-advanced:components/documentLinkList  

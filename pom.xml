@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>info.magnolia.training</groupId>
+  <artifactId>training-fullstack-project</artifactId>
+  <version>6.2.12</version>
+  <packaging>pom</packaging>
+  <name>Developer Project for Training (project's parent pom)</name>
+  <description>
+    This module of the training developer project represents the so called parent pom.
+    Its is the main control of the projects dependencies, as it provides a dependency-management defining all dependency versions project wide.
+    Every submodule should include this parent pom and inherit from here the dependency versions.
+  </description>
+
+  <properties>
+    <magnoliaBundleVersion>${project.version}</magnoliaBundleVersion>
+    <javaVersion>1.8</javaVersion>
+  </properties>
+
+  <scm>
+    <connection>scm:git:https://git.magnolia-cms.com/git/training/training-fullstack-project.git</connection>
+    <developerConnection>scm:git:https://git.magnolia-cms.com/git/training/training-fullstack-project.git</developerConnection>
+    <url>https://git.magnolia-cms.com/gitweb/?p=training/training-fullstack-project.git</url>
+  </scm>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- Magnolia related dependencies -->
+      <dependency>
+	    <groupId>info.magnolia.dx</groupId>
+	    <artifactId>magnolia-dx-core-parent</artifactId>
+	    <version>${magnoliaBundleVersion}</version>
+	    <type>pom</type>
+        <!-- Import the 'dependencyManagement' from the eebundle -> the whole project inherits all modules and their version from the eebundle -->
+        <scope>import</scope>
+	  </dependency>
+      
+      <!-- prevents servlet context problems in Eclipse. -->
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>servlet-api</artifactId>
+        <version>2.5</version>
+      </dependency>
+      
+      
+      <dependency>
+        <groupId>commons-httpclient</groupId>
+        <artifactId>commons-httpclient</artifactId>
+        <version>3.1</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- JUnit test -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.8.2</version>
+        <scope>test</scope>
+      </dependency>
+
+      <!-- Project related dependencies -->
+      <dependency>
+        <groupId>info.magnolia.training</groupId>
+        <artifactId>training-fullstack-templating</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>info.magnolia.training</groupId>
+        <artifactId>training-fullstack-admincentral</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+          <source>${javaVersion}</source>
+          <target>${javaVersion}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <!-- No checkstyles check for this training project. On a real project, disabling checkstyles is NOT a good thing!! -->
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <configuration>
+          <failOnViolation>false</failOnViolation>
+        </configuration>
+      </plugin>
+    </plugins>
+
+    <!-- default resources configuration which will filter your module descriptors -->
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*</include>
+        </includes>
+      </resource>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>META-INF/magnolia/*</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
+
+  <modules>
+    <module>training-fullstack-webapp</module>
+    <module>training-fullstack-templating</module>
+    <module>training-fullstack-admincentral</module>
+    <module>training-developer-sample-content</module>
+  </modules>
+</project>
